@@ -17,7 +17,7 @@ ENV NOTIFICATION=${NOTIFICATION:-true}
 ENV SMTP_HOST=${SMTP_HOST:-smtp.mycompany.com}
 ENV SMTP_PORT=${SMTP_PORT:-25}
 ENV SMTP_FROM_ADDRESS=${SMTP_FROM_ADDRESS:-dummy@mycompany.com}
-ENV SMTP_FROM_NAME=${SMTP_FROM_NAME:-GitBuck Admin}
+ENV SMTP_FROM_NAME=${SMTP_FROM_NAME:-"GitBucket Admin"}
 
 ENV LDAP_AUTHENTICATION=${LDAP_AUTHENTICATION:-false}
 ENV LDAP_HOST=${LDAP_HOST:-ldap.mycompany.com}
@@ -39,7 +39,15 @@ RUN cd /usr/local/tomcat/webapps; \
 
 RUN mkdir -p $GITBUCKET_HOME/plugins; \
     cd $GITBUCKET_HOME/plugins; \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/takezoe/gitbucket-gist-plugin/releases
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/takezoe/gitbucket-gist-plugin/releases \
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket-plugins/gitbucket-announce-plugin/releases \
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket-plugins/gitbucket-h2-backup-plugin/releases \
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/yoshiyoshifujii/gitbucket-desktopnotify-plugin/releases \
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/yoshiyoshifujii/gitbucket-commitgraphs-plugin/releases \
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/asciidoctor/gitbucket-asciidoctor-plugin/releases
+
+
+
 
 
 VOLUME $GITBUCKET_HOME
