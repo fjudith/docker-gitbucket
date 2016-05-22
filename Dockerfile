@@ -39,12 +39,12 @@ RUN cd /usr/local/tomcat/webapps; \
 
 RUN mkdir -p $GITBUCKET_HOME/plugins; \
     cd $GITBUCKET_HOME/plugins; \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket/gitbucket-gist-plugin/releases \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket-plugins/gitbucket-announce-plugin/releases \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket-plugins/gitbucket-h2-backup-plugin/releases \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/yoshiyoshifujii/gitbucket-desktopnotify-plugin/releases \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/yoshiyoshifujii/gitbucket-commitgraphs-plugin/releases \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/asciidoctor/gitbucket-asciidoctor-plugin/releases
+    wget https://github.com/gitbucket/gitbucket-gist-plugin/releases/download/4.0.0/gitbucket-gist-plugin_2.11-4.0.0.jar \
+    wget https://github.com/gitbucket-plugins/gitbucket-announce-plugin/releases/download/1.4.0/gitbucket-announce-plugin.jar \
+    wget https://github.com/gitbucket-plugins/gitbucket-h2-backup-plugin/releases/download/1.2.0/gitbucket-h2-backup-plugin.jar \
+    wget https://github.com/yoshiyoshifujii/gitbucket-desktopnotify-plugin/releases/download/3.12.0/gitbucket-desktopnotify-plugin_2.11-3.12.jar \
+    wget https://github.com/yoshiyoshifujii/gitbucket-commitgraphs-plugin/releases/download/3.12.0/gitbucket-commitgraphs-plugin_2.11-3.12.0.jar \
+    wget https://github.com/asciidoctor/gitbucket-asciidoctor-plugin/releases/download/1.0.0/gitbucket-4.0-asciidoctor-plugin-assembly-1.0.0.jar
 
 VOLUME $GITBUCKET_HOME
 WORKDIR $GITBUCKET_HOME
