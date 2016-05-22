@@ -39,16 +39,12 @@ RUN cd /usr/local/tomcat/webapps; \
 
 RUN mkdir -p $GITBUCKET_HOME/plugins; \
     cd $GITBUCKET_HOME/plugins; \
-    wget -nv -r -A .jar -e robots=off -nd https://github.com/takezoe/gitbucket-gist-plugin/releases \
+    wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket/gitbucket-gist-plugin/releases \
     wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket-plugins/gitbucket-announce-plugin/releases \
     wget -nv -r -A .jar -e robots=off -nd https://github.com/gitbucket-plugins/gitbucket-h2-backup-plugin/releases \
     wget -nv -r -A .jar -e robots=off -nd https://github.com/yoshiyoshifujii/gitbucket-desktopnotify-plugin/releases \
     wget -nv -r -A .jar -e robots=off -nd https://github.com/yoshiyoshifujii/gitbucket-commitgraphs-plugin/releases \
     wget -nv -r -A .jar -e robots=off -nd https://github.com/asciidoctor/gitbucket-asciidoctor-plugin/releases
-
-
-
-
 
 VOLUME $GITBUCKET_HOME
 WORKDIR $GITBUCKET_HOME
