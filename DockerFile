@@ -30,8 +30,6 @@ ENV LDAP_MAIL_ATTRIBUTE=${LDAP_MAIL_ATTRIBUTE:-mail}
 ENV SSH=${SSH:-true}
 ENV SSH_PORT=${SSH_PORT:-29418}
 
-
-
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 ADD https://github.com/gitbucket/gitbucket/releases/download/4.0/gitbucket.war /usr/local/tomcat/webapps/ROOT.war
@@ -39,7 +37,7 @@ ADD https://github.com/gitbucket/gitbucket/releases/download/4.0/gitbucket.war /
 RUN cd /usr/local/tomcat/webapps; \
     ln -s ROOT.war gitbucket-4.00
 
-RUN mkdir -p $GITBUCKET_HOME/plugins;
+RUN mkdir -p $GITBUCKET_HOME/plugins; \
     cd $GITBUCKET_HOME/plugins; \
     wget -nv -r -A .jar -e robots=off -nd https://github.com/takezoe/gitbucket-gist-plugin/releases
 
